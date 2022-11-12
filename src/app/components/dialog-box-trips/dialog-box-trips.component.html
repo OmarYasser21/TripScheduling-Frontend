@@ -1,0 +1,42 @@
+<h1 mat-dialog-title> <strong>{{action}} Trip</strong></h1>
+<div mat-dialog-content>
+
+
+  <mat-label *ngIf="action != 'Delete'; else elseTemplate">
+
+    <mat-form-field>
+    <mat-label>From Station</mat-label>
+    <mat-select required [(ngModel)]="data.fromStation.name" >
+      <mat-option *ngFor="let s of stations; let x=index" [value]="s.name">
+        {{s.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>To Station</mat-label>
+      <mat-select required [(ngModel)]="data.toStation.name">
+        <mat-option *ngFor="let s of stations; let x=index" [value]="s.name">
+          {{s.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field >
+     <input placeholder="Departure Time" type="datetime-local" matInput required [(ngModel)]="data.departureTime">
+    </mat-form-field>
+
+    <mat-form-field >
+      <input placeholder="Arrival Time" type="datetime-local" matInput required [(ngModel)]="data.arrivalTime">
+    </mat-form-field>
+
+  </mat-label>
+
+  <ng-template #elseTemplate>
+    Are you sure you want to delete trip <b>{{data.id}}</b>?
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="doAction()">{{action}}</button>
+  <button mat-button class="mat-focus-indicator mat-raised-button mat-button-base mat-raised" (click)="closeDialog()" >Cancel</button>
+</div>

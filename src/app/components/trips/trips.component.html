@@ -1,0 +1,58 @@
+<mat-toolbar color="primary">
+  <mat-icon>supervised_user_circle</mat-icon>
+  <a class="home" routerLink="/home">GoToBus</a>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<table mat-table [dataSource]="trips"  class="mat-elevation-z8 text-center" >
+
+  <ng-container matColumnDef="ID" >
+    <th mat-header-cell *matHeaderCellDef  class="text-center"> ID </th>
+    <td mat-cell *matCellDef="let element" > {{element.id}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="From Station">
+    <th mat-header-cell *matHeaderCellDef class="text-center">From Station</th>
+    <td mat-cell *matCellDef="let element"> {{element.fromStation.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="To Station">
+    <th mat-header-cell *matHeaderCellDef class="text-center">To Station</th>
+    <td mat-cell *matCellDef="let element"> {{element.toStation.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Departure Time">
+    <th mat-header-cell *matHeaderCellDef class="text-center">Departure Time</th>
+    <td mat-cell *matCellDef="let element"> {{element.departureTime}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Arrival Time">
+    <th mat-header-cell *matHeaderCellDef class="text-center">Arrival Time</th>
+    <td mat-cell *matCellDef="let element"> {{element.arrivalTime}} </td>
+  </ng-container>
+
+  <ng-container  matColumnDef="Action">
+    <th  mat-header-cell *matHeaderCellDef class="text-center"> Action</th>
+    <td mat-cell *matCellDef="let element" >
+      <a (click)="openDialog2('Update',element)" mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary" >
+        <mat-icon>edit</mat-icon>
+      </a>
+
+      <a (click)="openDialog2('Delete',element)" mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="primary">
+        <mat-icon>delete</mat-icon>
+      </a>
+    </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+
+</table>
+<br>
+<button style="margin-left: 12px" mat-button class="mat-focus-indicator mat-raised-button mat-button-base mat-raised" routerLink="/home">Back</button>
+<button mat-button class="add" (click)="openDialog1()">Add Trip</button>
+<br>
+

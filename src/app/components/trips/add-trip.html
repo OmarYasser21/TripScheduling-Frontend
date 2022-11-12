@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Add Trip</h1>
+<form style="height: 60%" [formGroup]="exform" class="form">
+
+    <mat-form-field appearance="fill">
+      <mat-label>From Station</mat-label>
+      <mat-select [(ngModel)]="tr.fromStation.id" formControlName="From">
+        <mat-option *ngFor="let s of stations; let x=index" [value]="s.id">
+          {{s.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>To Station</mat-label>
+    <mat-select [(ngModel)]="tr.toStation.id" formControlName="To">
+      <mat-option *ngFor="let s of stations; let x=index" [value]="s.id">
+        {{s.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Departure Time</mat-label>
+    <input [(ngModel)]="tr.departureTime" type="datetime-local" formControlName="Departure" matInput required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Arrival Time</mat-label>
+    <input [(ngModel)]="tr.arrivalTime" type="datetime-local" formControlName="Arrival" matInput required>
+  </mat-form-field>
+  <br />
+
+
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="addTrip(tr)">Save</button>
+    <button mat-button class="mat-focus-indicator mat-raised-button mat-button-base mat-raised" (click)="onNoClick()">Cancel</button>
+  </div>
+</form>
