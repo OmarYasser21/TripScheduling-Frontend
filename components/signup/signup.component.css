@@ -1,0 +1,11 @@
+.login-wrapper. form {
+  min-width: 100%;
+  max-width: 300px;
+  width: 100%;
+}
+.form{
+  margin-top: 10%;
+}
+body{
+  background-color: #131722;
+}

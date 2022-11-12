@@ -1,0 +1,17 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-stroked-button {
+  width: 49.5%;
+  height:10% ;
+  padding: 25px;
+  background-color: #3f51b5;
+  color: #fff;
+}
+.trips{
+  margin-left: 1%;
+}
+.img{
+  background-image: url("bus.jpg");
+}
