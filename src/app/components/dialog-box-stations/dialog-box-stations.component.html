@@ -1,0 +1,13 @@
+<h1 mat-dialog-title> <strong>{{action}} Station</strong></h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="Station Name" matInput required [(ngModel)]="data.name">
+  </mat-form-field>
+  <ng-template #elseTemplate>
+   Are you sure you want to delete station <b>{{data.name}}</b>?
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="doAction()">{{action}}</button>
+  <button mat-button class="mat-focus-indicator mat-raised-button mat-button-base mat-raised" (click)="closeDialog()" >Cancel</button>
+</div>
