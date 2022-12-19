@@ -8,7 +8,7 @@ import { User } from './user';
 })
 export class UserService {
 
-  private userUrl = 'https://backend-p3.apps.eu410.prod.nextcle.com';
+  private userUrl = 'https://backendd-p3.apps.eu410.prod.nextcle.com';
 
   constructor(private http: HttpClient) { }
 
