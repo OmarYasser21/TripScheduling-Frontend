@@ -5,5 +5,5 @@ RUN npm install
 COPY . .
 RUN ng build --prod
 
-FROM nginx:1.19-alpine
+FROM nginx:latest
 COPY --from=build-stage /app/dist/ /usr/share/nginx/html
