@@ -5,5 +5,5 @@ RUN npm install
 COPY . .
 RUN ng build --prod
 
-FROM nginx:latest
+FROM nginxinc/nginx-unprivileged
 COPY --from=build-stage /app/dist/ /usr/share/nginx/html
