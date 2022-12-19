@@ -8,7 +8,7 @@ import { Station } from './station';
 })
 export class StationService {
 
-  private stationUrl = 'https://backend-p3.apps.eu410.prod.nextcle.com/stations';
+  private stationUrl = 'https://backendd-p3.apps.eu410.prod.nextcle.com';
 
   constructor(private http: HttpClient) { }
 
