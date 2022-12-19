@@ -1,7 +1,9 @@
-FROM node:latest as builder
-RUN mkdir -p /app
+FROM node:latest as build-stage
 WORKDIR /app
-COPY . .
+COPY package*.json ./
 RUN npm install
-RUN npm run build --prod
-CMD ["npm", "start"]
+COPY . .
+RUN ng build --prod
+
+FROM nginx:1.19-alpine
+COPY --from=build-stage /app/dist/ /usr/share/nginx/html
