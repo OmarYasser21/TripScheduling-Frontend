@@ -1,8 +1,9 @@
 FROM node:latest as build-stage
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
+RUN mkdir -p /app
+WORKDIR /usr/src/app
 COPY . .
+RUN npm -i -g @angular/cli
+RUN npm install
 RUN ng build --prod
 
 FROM nginxinc/nginx-unprivileged
