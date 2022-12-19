@@ -8,7 +8,7 @@ import { Trip } from './trip';
 })
 export class TripService {
 
-  private tripUrl = 'http://localhost:8080/trips';
+  private tripUrl = 'https://backend-p3.apps.eu410.prod.nextcle.com/trips';
 
   constructor(private http: HttpClient) { }
 
