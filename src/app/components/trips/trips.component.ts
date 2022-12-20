@@ -115,7 +115,7 @@ export class TripsComponent implements OnInit {
       console.log(data);
       // this.dialogRef.close()
       this._router.navigate(['/trips']); });
-    window.location.reload();
+    //window.location.reload();
   }
 
 }
@@ -157,7 +157,7 @@ export class AddTrip implements OnInit{
       console.log(data);
       this.dialogRef.close()
       this._router.navigate(['/trips']); });
-    window.location.reload();
+    //window.location.reload();
   }
 
   /*Form validations*/
