@@ -132,7 +132,6 @@ export class AddStation implements OnInit{
       console.log(data);
       this.dialogRef.close()
       this._router.navigate(['/stations']); });
-      window.location.reload();
   }
 
   /*Form validations*/
